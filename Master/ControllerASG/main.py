@@ -2,18 +2,22 @@ import boto3
 from botocore.exceptions import ClientError
 
 # Importar variables de configuración de archivo config.py
-from config import aws_access_key_id, aws_secret_access_key
+from config import aws_access_key_id, aws_secret_access_key, aws_region
 
 # Inicializar cliente de boto3 para trabajar con Amazon EC2 y Auto Scaling
 ec2_client = boto3.client(
     'ec2',
     aws_access_key_id=aws_access_key_id,
     aws_secret_access_key=aws_secret_access_key,
+    region_name=aws_region
+
 )
 asg_client = boto3.client(
     'autoscaling',
     aws_access_key_id=aws_access_key_id,
     aws_secret_access_key=aws_secret_access_key,
+    region_name=aws_region
+
 )
 
 def create_auto_scaling_group():
@@ -91,3 +95,6 @@ def delete_auto_scaling_group():
         print("Error deleting Auto Scaling group:", e)
 
 
+if __name__ == '__main__':
+    create_auto_scaling_group()
+    create_ec2_instance()
