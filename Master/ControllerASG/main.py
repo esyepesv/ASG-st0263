@@ -2,7 +2,7 @@ import boto3
 from botocore.exceptions import ClientError
 
 # Importar variables de configuración de archivo config.py
-from config import aws_access_key_id, aws_secret_access_key, aws_region
+from config import aws_access_key_id, aws_secret_access_key, aws_region, id_AMI
 
 # Inicializar cliente de boto3 para trabajar con Amazon EC2 y Auto Scaling
 ec2_client = boto3.client(
@@ -20,6 +20,7 @@ asg_client = boto3.client(
 
 )
 
+'''
 def create_auto_scaling_group():
     try:
         response = asg_client.create_auto_scaling_group(
@@ -28,24 +29,23 @@ def create_auto_scaling_group():
             MinSize=1,
             MaxSize=5,
             DesiredCapacity=1,
-            AvailabilityZones=['us-west-2a'],
-            VPCZoneIdentifier='subnet-0123456789abcdef0',
+            AvailabilityZones=['us-east-1']
         )
         print("Auto Scaling group created successfully.")
     except ClientError as e:
         print("Error creating Auto Scaling group:", e)
-
+'''
 def create_ec2_instance():
     try:
         response = ec2_client.run_instances(
-            ImageId='ami-0123456789abcdef0',
+            ImageId=id_AMI,
             InstanceType='t2.micro',
             KeyName='vockey.pem',
             MaxCount=1,
             MinCount=1,
             UserData='#!/bin/bash\n echo "Hello, World!" > index.html\n nohup python -m SimpleHTTPServer 80 &',
-            SecurityGroupIds=['sg-0123456789abcdef0'],
-            SubnetId='subnet-0123456789abcdef0',
+            #SecurityGroupIds=['sg-0123456789abcdef0'],
+            #SubnetId='subnet-0123456789abcdef0',
         )
         instance_id = response['Instances'][0]['InstanceId']
         print("Instance created successfully. Instance ID:", instance_id)
@@ -96,5 +96,5 @@ def delete_auto_scaling_group():
 
 
 if __name__ == '__main__':
-    create_auto_scaling_group()
+    #create_auto_scaling_group()
     create_ec2_instance()
