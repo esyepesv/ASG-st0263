@@ -2,13 +2,14 @@ import boto3
 from botocore.exceptions import ClientError
 
 # Importar variables de configuración de archivo config.py
-from config import aws_access_key_id, aws_secret_access_key, aws_region, id_AMI
+from config import aws_access_key_id, aws_secret_access_key, aws_region, id_AMI, session_token
 
 # Inicializar cliente de boto3 para trabajar con Amazon EC2 y Auto Scaling
 ec2_client = boto3.client(
     'ec2',
     aws_access_key_id=aws_access_key_id,
     aws_secret_access_key=aws_secret_access_key,
+    aws_session_token = session_token
     region_name=aws_region
 
 )
