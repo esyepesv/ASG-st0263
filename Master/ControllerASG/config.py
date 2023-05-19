@@ -1,6 +1,6 @@
-aws_access_key_id = 'ASIAXG6HUWADB4SJ6J6Q'
-aws_secret_access_key = 'LnTUel7ZdIAbUB19cPq3GctDtsKUb7CSjdQYLGde'
-session_token = ''
+aws_access_key_id = 'ASIAXG6HUWADP23SZCQJ'
+aws_secret_access_key = 'mq0fOJvGfOkZ0vzRsZmVVqKqafxIkXcm/TKvT7Nh'
+session_token = 'FwoGZXIvYXdzEGcaDMg/ERwM1t+U5/E5uiLGAQmn1+SEQKPxcIOzPE1q1llCZ/q3EGAsF4NmOC0r9Iyw9c8Q/9VVArg6fbrN6YzAU8SEF8JozedRSmrB+rPknoEKRpYuPBxIBQ2SWVg0PYVLPVVRghOJ2wGyGFQwDANIdxe+DBlbi/jIJe9AseVoQqD74kxYk4Rph3ZJqV8j5MWzMA3gjh5EKg7NOw1vu1R0JfCx4TUTCmOPoWA03ZGISTwOG39pWvOJc8RkGEqDgm39NxkkKMkH+mld/gwPY6bYJQJJcGbS8ijLyZ+jBjItRrHeDmoMsOaCjW3MZOIRzNeegc0mpL/EOar3O6CE45ATZnyN4ksiZIwdADP1'
 aws_region = 'us-east-1'
 id_AMI = 'ami-0f0f232eb233dfb63' 
 
