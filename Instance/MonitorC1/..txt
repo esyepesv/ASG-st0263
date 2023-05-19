@@ -1,4 +1,0 @@
-ofrece servicios como:
-- ping pong o hearbeat
-- GetMetrics (carga simulada)
-- registro y desregistro
