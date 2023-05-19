@@ -3,6 +3,7 @@ from concurrent import futures
 import main_pb2
 import main_pb2_grpc
 
+
 class MonitorService(main_pb2_grpc.MonitorServiceServicer):
     def PingPong(self, request, context):
         message = request.message
@@ -12,7 +13,8 @@ class MonitorService(main_pb2_grpc.MonitorServiceServicer):
     def GetMetrics(self, request, context):
         instance_id = request.instance_id
         # Lógica para obtener las métricas del servidor usando el instance_id
-        load = 10  # Ejemplo de valor de carga
+        
+        load = 0.5  # Ejemplo de valor de carga (0-1)
         response = main_pb2.MetricsResponse(load=load)
         return response
 
