@@ -28,7 +28,7 @@ def create_auto_scaling_group():
             MinSize=1,
             MaxSize=5,
             DesiredCapacity=1,
-            AvailabilityZones=['us-west-2a'],
+            AvailabilityZones=[aws_region],
             VPCZoneIdentifier='subnet-0123456789abcdef0',
         )
         print("Auto Scaling group created successfully.")
