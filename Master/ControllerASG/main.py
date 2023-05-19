@@ -29,7 +29,12 @@ def create_auto_scaling_group():
             MinSize=1,
             MaxSize=5,
             DesiredCapacity=1,
+<<<<<<< HEAD
             AvailabilityZones=['us-east-1']
+=======
+            AvailabilityZones=[aws_region],
+            VPCZoneIdentifier='subnet-0123456789abcdef0',
+>>>>>>> 394ec932ffc6b6a9a77bbbbda1f50ac7262ed719
         )
         print("Auto Scaling group created successfully.")
     except ClientError as e:
