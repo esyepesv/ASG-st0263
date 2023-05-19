@@ -9,7 +9,7 @@ ec2_client = boto3.client(
     'ec2',
     aws_access_key_id=aws_access_key_id,
     aws_secret_access_key=aws_secret_access_key,
-    aws_session_token = session_token
+    aws_session_token = session_token,
     region_name=aws_region
 
 )
@@ -17,6 +17,7 @@ asg_client = boto3.client(
     'autoscaling',
     aws_access_key_id=aws_access_key_id,
     aws_secret_access_key=aws_secret_access_key,
+    aws_session_token = session_token,
     region_name=aws_region
 
 )
