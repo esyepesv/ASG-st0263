@@ -21,6 +21,7 @@ def create_ec2_instance():
             MaxCount=1,
             MinCount=1,
             UserData = '''#!/bin/bash
+                            git clone https://github.com/esyepesv/ASG-st0263.git
                             cd /home/ubuntu/ASG-st0263/Instance/MonitorC1
                             chmod +x script.sh
                             bash script.sh
