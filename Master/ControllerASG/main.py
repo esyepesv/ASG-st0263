@@ -21,11 +21,11 @@ def create_ec2_instance():
             MaxCount=1,
             MinCount=1,
             UserData = '''#!/bin/bash
-                            git clone https://github.com/esyepesv/ASG-st0263.git
-                            cd /home/ubuntu/ASG-st0263/Instance/MonitorC1
-                            chmod +x script.sh
-                            bash script.sh
-                       ''',
+                git clone https://github.com/esyepesv/ASG-st0263.git
+                cd /home/ubuntu/ASG-st0263/Instance/MonitorC1
+                chmod +x script.sh
+                bash script.sh
+            ''',
             SecurityGroupIds=['sg-09460bf625a8b6ffb'],
             SubnetId='subnet-0b9b72090fcfa4ae2'
         )
