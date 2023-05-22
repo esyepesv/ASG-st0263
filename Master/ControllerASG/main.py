@@ -23,8 +23,8 @@ def create_ec2_instance():
             UserData = '''#!/bin/bash
                             cd /home/ubuntu/ASG-st0263/Instance/MonitorC1
                             python main.py
-                       '''
-            SecurityGroupIds=['sg-09460bf625a8b6ffb'],
+                       ''',
+            SecurityGroupIds=['sg-0c31c7990cccfdff5'],
             SubnetId='subnet-0b9b72090fcfa4ae2'
         )
         instance_id = response['Instances'][0]['InstanceId']

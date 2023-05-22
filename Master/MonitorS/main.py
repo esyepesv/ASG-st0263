@@ -4,8 +4,11 @@ import main_pb2
 import main_pb2_grpc
 
 def run():
+
+    #lista de ip's 
+    
     # Abre un canal gRPC al servidor
-    with grpc.insecure_channel('localhost:50051') as channel:
+    with grpc.insecure_channel('44.202.30.128:50051') as channel:
         # Crea un stub (doble de objeto) para el servicio MonitorService
         stub = main_pb2_grpc.MonitorServiceStub(channel)
 
