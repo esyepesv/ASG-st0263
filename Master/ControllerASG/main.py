@@ -22,8 +22,9 @@ def create_ec2_instance():
             MinCount=1,
             UserData = '''#!/bin/bash
                             cd /home/ubuntu/ASG-st0263/Instance/MonitorC1
-                            python main.py
-                       '''
+                            chmod +x script.sh
+                            bash script.sh
+                       ''',
             SecurityGroupIds=['sg-09460bf625a8b6ffb'],
             SubnetId='subnet-0b9b72090fcfa4ae2'
         )
