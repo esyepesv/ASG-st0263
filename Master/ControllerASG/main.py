@@ -20,9 +20,17 @@ def create_ec2_instance():
             InstanceType='t2.micro',
             MaxCount=1,
             MinCount=1,
-            UserData = '#!/bin/bash git clone https://github.com/esyepesv/ASG-st0263.git cd /home/ubuntu/ASG-st0263/Instance/MonitorC1 chmod +x script.sh bash script.sh ',
+            UserData = '''#!/bin/bash
+                git clone https://github.com/esyepesv/ASG-st0263.git
+                cd /home/ubuntu/ASG-st0263/Instance/MonitorC1
+                chmod +x script.sh
+                bash script.sh
+            ''',
             SecurityGroupIds=['sg-09460bf625a8b6ffb'],
-            SubnetId='subnet-0b9b72090fcfa4ae2'
+            SubnetId='subnet-0b9b72090fcfa4ae2',
+            IamInstanceProfile={
+                'Arn': 'arn:aws:iam::192666608429:instance-profile/EMR_EC2_DefaultRole'
+            }
         )
         instance_id = response['Instances'][0]['InstanceId']
     
