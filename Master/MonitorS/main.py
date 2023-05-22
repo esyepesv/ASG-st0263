@@ -12,7 +12,7 @@ def run():
         # Llama al método PingPong del servicio y pasa un mensaje "ping" como parte de la solicitud
         response = stub.PingPong(main_pb2.PingRequest(message='ping'))
         print(f'Pong: {response.message}')
-
+        
         # Llama al método GetMetrics del servicio y pasa una instancia_id como parte de la solicitud
         response = stub.GetMetrics(main_pb2.MetricsRequest(instance_id='my-instance-id'))
         print(f'Metrics: {response.load}')
@@ -24,6 +24,7 @@ def run():
         # Llama al método Deregister del servicio y pasa una instancia_id como parte de la solicitud
         response = stub.Deregister(main_pb2.DeregisterRequest(instance_id='my-instance-id'))
         print(f'Deregister: {response.success}')
+        
 
 if __name__ == '__main__':
     run()

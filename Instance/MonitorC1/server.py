@@ -14,8 +14,8 @@ class MonitorService(main_pb2_grpc.MonitorServiceServicer):
         instance_id = request.instance_id
         # Lógica para obtener las métricas del servidor usando el instance_id
         
-        load = 0.5  # Ejemplo de valor de carga (0-1)
-        response = main_pb2.MetricsResponse(load=load)
+        load = 50  # Ejemplo de valor de carga (0-100)
+        response = main_pb2.MetricsResponse(load=int(load))
         return response
 
     def Register(self, request, context):
