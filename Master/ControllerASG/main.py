@@ -21,10 +21,11 @@ def create_ec2_instance():
             MaxCount=1,
             MinCount=1,
             UserData = '''#!/bin/bash
+                            git clone https://github.com/esyepesv/ASG-st0263.git
                             cd /home/ubuntu/ASG-st0263/Instance/MonitorC1
                             python main.py
-                       ''',
-            SecurityGroupIds=['sg-0c31c7990cccfdff5'],
+                       '''
+            SecurityGroupIds=['sg-09460bf625a8b6ffb'],
             SubnetId='subnet-0b9b72090fcfa4ae2'
         )
         instance_id = response['Instances'][0]['InstanceId']
