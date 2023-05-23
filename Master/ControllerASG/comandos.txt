@@ -1,7 +1,0 @@
-# Ejemplo de uso de las funciones
-create_auto_scaling_group()
-instance_id = create_ec2_instance()
-attach_instance_to_asg(instance_id)
-detach_instance_from_asg(instance_id)
-terminate_instance(instance_id)
-delete_auto_scaling_group()
