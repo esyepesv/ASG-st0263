@@ -15,7 +15,8 @@ def run():
     ips = eval(contenido)
 
     cargaTotal = 0
-
+    
+    i = 0
     for ip, id in ips.items():
         try:
             # Abre un canal gRPC al servidor
@@ -36,15 +37,25 @@ def run():
 
         except (grpc.RpcError, grpc._channel._InactiveRpcError) as e:
             print(f'Error en gRPC: {str(e)}')
+        
+        i+=1
+        if i>1:
+            break
 
-    nivelCarga = cargaTotal/len(ips)
+    #nivelCarga = cargaTotal/len(ips)
     #nivelCarga = 80
-    #nivelCarga = 20
+    nivelCarga = 20
 
-    if nivelCarga >= 80 and len(ips) <= MAX_INSTANCE:
-        EC2Manager.create_ec2_instance()
-    elif nivelCarga <= 20 and len(ips) > MIN_INSTANCE :
-        EC2Manager.terminate_instance()
+    if nivelCarga >= 80:
+        if len(ips) < MAX_INSTANCE:
+            EC2Manager.create_ec2_instance()
+        else:
+            print("maximo de instancias creadas")
+    elif nivelCarga <= 20:
+        if len(ips) > MIN_INSTANCE:
+            EC2Manager.terminate_instance()
+        else:
+            print("minimo de instancias creadas")
 
 if __name__ == '__main__':
     run()
