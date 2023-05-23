@@ -1,7 +1,7 @@
 # info de la materia: ST0263 Tópicos Especiales en Telemática.
 
 ## Estudiantes: 
- - Stiven Yepes Vanegas, esyepesv@eafit.edu. co
+ - Stiven Yepes Vanegas, esyepesv@eafit.edu.co
  - Juan Pablo Cortes Gonzalez, jpcortesg@eafit.edu.co
  - Yhilmar Andres Chaverra, yachaverrc@eafit.edu.co
  - Andrés Felipe Téllez Rodríguez, aftellezr@eafit.edu.co
