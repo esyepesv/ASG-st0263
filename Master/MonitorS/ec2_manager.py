@@ -73,6 +73,3 @@ class EC2Manager:
             print("Error terminating instance:", e)
 
 
-if __name__ == '__main__':
-    #EC2Manager.create_ec2_instance()
-    EC2Manager.terminate_instance()

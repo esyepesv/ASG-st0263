@@ -41,9 +41,9 @@ def run():
     #nivelCarga = 80
     #nivelCarga = 20
 
-    if nivelCarga >= 80:
+    if nivelCarga >= 80 and len(ips) <= MAX_INSTANCE:
         EC2Manager.create_ec2_instance()
-    elif nivelCarga <= 20:
+    elif nivelCarga <= 20 and len(ips) > MIN_INSTANCE :
         EC2Manager.terminate_instance()
 
 if __name__ == '__main__':
