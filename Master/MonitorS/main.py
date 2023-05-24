@@ -3,7 +3,7 @@ import grpc
 import main_pb2
 import main_pb2_grpc
 
-from ec2_manager import EC2Manager
+from Master.MonitorS.controlerASG import EC2Manager
 
 MIN_INSTANCE = 2
 MAX_INSTANCE = 5
@@ -15,8 +15,6 @@ def run():
     ips = eval(contenido)
 
     cargaTotal = 0
-    
-    i = 0
     for ip, id in ips.items():
         try:
             # Abre un canal gRPC al servidor
@@ -38,13 +36,10 @@ def run():
         except (grpc.RpcError, grpc._channel._InactiveRpcError) as e:
             print(f'Error en gRPC: {str(e)}')
         
-        i+=1
-        if i>1:
-            break
 
-    #nivelCarga = cargaTotal/len(ips)
+    nivelCarga = cargaTotal/len(ips)
     #nivelCarga = 80
-    nivelCarga = 20
+    #nivelCarga = 20
 
     if nivelCarga >= 80:
         if len(ips) < MAX_INSTANCE:
